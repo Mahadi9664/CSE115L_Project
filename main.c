@@ -184,9 +184,8 @@ int main()
                         putchar(c);
                     }
                     fclose(fp);
-                    system("cls");
-                    printf("\n\n\tOperation completed sucsessfully");
-                    goto menu; //goes to main menu
+
+                    //goto menu; //goes to main menu
 
                 }
                 else if(r==2)
@@ -200,9 +199,8 @@ int main()
                     }
                     fclose(fp);
                 }
-                system("cls");
-               printf("\n\n\tOperation completed sucsessfully");
-               goto menu; //goes to main menu
+
+               //goto menu; //goes to main menu
 
             }
             else
@@ -239,7 +237,7 @@ int main()
             }
             system("cls");
              printf("\n\n\tOperation completed sucsessfully");
-              goto menu;
+              //goto menu;
 
 
 
