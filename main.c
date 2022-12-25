@@ -122,13 +122,18 @@ int main()
     int option;
     loadingBar();
     welcome();
+
     //asking user to enter role and taking input
 
 
     char content[1000];
 
+
+
+
     char slct[]="\n\n\t\tSELECT YOUR ROLE :\n\n\t\t1.Manager\n\t\t2.Ticketmaster\n\t\t\n";
     int i;
+menu:
     for(i=0; i<=52; i++)
     {
         printf("%c",slct[i]);
@@ -173,21 +178,31 @@ int main()
                     FILE *fp;
                     fp=fopen("revenue.txt","r");
                     char c;
-                    while((c=getc(fp))!=EOF){
-                    putchar(c);
+                    while((c=getc(fp))!=EOF)
+                    {
+                        putchar(c);
                     }
                     fclose(fp);
+                    system("cls");
+                    printf("\n\n\tOperation completed sucsessfully");
+                    goto menu;
+
                 }
                 else if(r==2)
                 {
                     FILE *fp;
                     fp=fopen("invoice.txt","r");
                     char c;
-                    while((c=getc(fp))!=EOF){
-                    putchar(c);
+                    while((c=getc(fp))!=EOF)
+                    {
+                        putchar(c);
                     }
                     fclose(fp);
                 }
+                system("cls");
+             printf("\n\n\tOperation completed sucsessfully");
+             goto menu;
+
             }
             else
             {
@@ -216,10 +231,18 @@ int main()
 
 
                 fclose(fptr);
+
             }
+            system("cls");
+             printf("\n\n\tOperation completed sucsessfully");
+              goto menu;
+
+
+
         }
 
     }
+
     else if(r==2)                                   //ticket master login
     {
         struct manager n;
@@ -231,7 +254,7 @@ int main()
         int loop;
         char filename[]="passwords.txt";
 
-        tmpass:
+tmpass:
         printf("\t\tEnter your username: ");
         fflush(stdin);
         gets(n.username);
@@ -296,31 +319,31 @@ int main()
 
             FILE* fptr;
 
-                fptr = fopen("revenue.txt", "a");
-                //WARNING BUG HERE ***********************************************
-                //*****************************************************************
-                //*****************************************************************
-                int revenue = ticket_price*passenger_num;
+            fptr = fopen("revenue.txt", "a");
+            //WARNING BUG HERE ***********************************************
+            //*****************************************************************
+            //*****************************************************************
+            int revenue = ticket_price*passenger_num;
 
-                char snumrev[2000];
+            char snumrev[2000];
 
-                // convert 123 to string [buf]
-                itoa(revenue, snumrev, 20);
+            // convert 123 to string [buf]
+            itoa(revenue, snumrev, 20);
 
-                // print our string
-                fputs("Date: ",fptr);
-                fprintf(fptr, "%s\n",date);
-                fputs("The ticketmaster for the bus: ", fptr);
-                fprintf(fptr, "%s\n",name);
-                fputs("The profit for the day: ", fptr);
-                fprintf(fptr, "%s\n",snumrev);
-
-
-                fclose(fptr);
+            // print our string
+            fputs("Date: ",fptr);
+            fprintf(fptr, "%s\n",date);
+            fputs("The ticketmaster for the bus: ", fptr);
+            fprintf(fptr, "%s\n",name);
+            fputs("The profit for the day: ", fptr);
+            fprintf(fptr, "%s\n",snumrev);
 
 
+            fclose(fptr);
 
-            for(int i=0;i<passenger_num;i++)            //taking the input for invoice
+
+
+            for(int i=0; i<passenger_num; i++)          //taking the input for invoice
             {
                 printf("\e[1;1H\e[2J");
                 printf("\t\n\n\n\n\n\n\n\n\n\t\t\t\t");
@@ -355,7 +378,8 @@ int main()
 
         }
 
-        fclose(fptr);
+
+
     }
 
 }
