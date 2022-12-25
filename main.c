@@ -292,6 +292,7 @@ tmpass:
             printf("\e[1;1H\e[2J");
             printf("\t\n\n\n\n\n\n\n\n\n");
             printf("\t\tPlease enter the correct information and try again\n\n");
+            Beep(800,1000);
             goto tmpass;
         }
         else
