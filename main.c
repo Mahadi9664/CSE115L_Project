@@ -52,12 +52,12 @@ int mngrOptions(void)
     printf("\n\n\n\n\n\n\t");
     if(x==1)
     {
-        printf("\t\t-------------------YOU ARE VIEWING THE REVENUE----------------- \n\n");
+        printf("\t\t-------------------YOU ARE VIEWING THE REVENUE----------------- \n\n"); //not working
         return 1;
     }
     else if(x==2)
     {
-        printf("\t\t ---------------YOU ARE SEARCHING FOR TICKET INVOICE------------------ \n\n");
+        printf("\t\t ---------------YOU ARE SEARCHING FOR TICKET INVOICE------------------ \n\n"); //notworking
         return 2;
 
     }
@@ -87,12 +87,12 @@ int logincheck(int x)
     printf("\n\n\n\n\n\n\t");
     if(x==1)
     {
-        printf("\t\t\t---------------YOU ARE LOGGING IN AS THE MANAGER------------------ \n\n\t\t\t\t****PLEASE ENTER THE FOLLOWING INFORMATION***\n\n");
+        printf("\t\t\t---------------YOU ARE LOGGING IN AS THE MANAGER------------------ \n\n\t\t\t\t****PLEASE ENTER THE FOLLOWING INFORMATION***\n\n"); //notworking
         return 1;
     }
     else if(x==2)
     {
-        printf("\t---------------YOU ARE CREATING USERNAMES AND PASSWORDS FOR TICKETMASTERS------------------\n\n\t\t\t\t\t****PLEASE ENTER THE FOLLOWING INFORMATION***\n\n");
+        printf("\t---------------YOU ARE CREATING USERNAMES AND PASSWORDS FOR TICKETMASTERS------------------\n\n\t\t\t\t\t****PLEASE ENTER THE FOLLOWING INFORMATION***\n\n"); //not working
         return 2;
 
     }
@@ -133,7 +133,7 @@ int main()
 
     char slct[]="\n\n\t\tSELECT YOUR ROLE :\n\n\t\t1.Manager\n\t\t2.Ticketmaster\n\t\t\n";
     int i;
-menu:
+    menu:
     for(i=0; i<=52; i++)
     {
         printf("%c",slct[i]);
@@ -146,7 +146,7 @@ menu:
 
     if(r==1)                                                                //MANAGER
     {
-        char slct1[500]="\n\n\t\tWhich option do you choose: \n\n\t\t1.Login\n\t\t2.Create accounts for ticketmaster.\n\t\t\n";
+        char slct1[500]="\n\n\t\tWhich option do you choose: \n\n\t\t1.Login\n\t\t2.Create accounts for ticketmaster.\n\t\t3.Back\n\t\t\n";
 
         for(int i=0; i<=strlen(slct1); i++)
         {
@@ -158,6 +158,7 @@ menu:
 
         if(r==1)                                            //MANAGER LOGIN
         {
+            mngr:
             printf("\t\tEnter your username: ");
             fflush(stdin);
             gets(m.username);
@@ -185,7 +186,7 @@ menu:
                     fclose(fp);
                     system("cls");
                     printf("\n\n\tOperation completed sucsessfully");
-                    goto menu;
+                    goto menu; //goes to main menu
 
                 }
                 else if(r==2)
@@ -200,14 +201,17 @@ menu:
                     fclose(fp);
                 }
                 system("cls");
-             printf("\n\n\tOperation completed sucsessfully");
-             goto menu;
+               printf("\n\n\tOperation completed sucsessfully");
+               goto menu; //goes to main menu
 
             }
             else
             {
-                printf("ERROR!");
-                system("cls");
+                printf("\e[1;1H\e[2J");
+            printf("\t\n\n\n\n\n\n\n\n\n");
+            printf("\t\tPlease enter the correct information and try again\n\n");
+            Beep(800,1000);
+            goto mngr; // beeps and goes to manager input if password is incorrect
             }
         }
 
@@ -240,6 +244,11 @@ menu:
 
 
         }
+        else if(r==3)
+        {
+            goto menu;
+        }
+
 
     }
 
@@ -254,7 +263,7 @@ menu:
         int loop;
         char filename[]="passwords.txt";
 
-tmpass:
+        tmpass:
         printf("\t\tEnter your username: ");
         fflush(stdin);
         gets(n.username);
@@ -293,7 +302,7 @@ tmpass:
             printf("\t\n\n\n\n\n\n\n\n\n");
             printf("\t\tPlease enter the correct information and try again\n\n");
             Beep(800,1000);
-            goto tmpass;
+            goto tmpass; //beeps and goes to tm login page again
         }
         else
         {
