@@ -4,3 +4,6 @@ The profit for the day: 0
 Date: 12/12/2022
 The ticketmaster for the bus: howl
 The profit for the day: 60
+Date: 12
+The ticketmaster for the bus: kkl
+The profit for the day: 2e8

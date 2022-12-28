@@ -190,14 +190,122 @@ int main()
                 }
                 else if(r==2)
                 {
-                    FILE *fp;
-                    fp=fopen("invoice.txt","r");
-                    char c;
-                    while((c=getc(fp))!=EOF)
+                    char searchName[20];
+                    char word[50];
+                    char ch;
+                    int counter =0;
+                    int pos[10];
+                    int pointer =0;
+                    int loop;
+                    char filename[]="invoice.txt";
+
+                    printf("Enter the name you want to search: ");
+                    scanf("%s",searchName);
+
+                    FILE* fptr;
+
+                    fptr = fopen("invoice.txt", "r");
+
+                    /*if(fptr!=NULL)
                     {
-                        putchar(c);
+                        printf("file can not open.");
+                    }*/
+
+                    char search[50];
+                    strcpy(search,searchName);
+
+                    printf("Name: ");
+                    do
+                    {
+                        ch = fscanf(fptr, "%s", word);
+                        if(strcmp(word, search) == 0)
+                        {
+                            pos[counter] = pointer;
+                            counter++;
+                            puts(word);
+                            break;
+                        }
+                        pointer++;
+
                     }
-                    fclose(fp);
+                    while (ch != EOF);
+
+                    int count = 0;
+
+                    if ( fptr != NULL )
+                    {
+                        char line[256]; /* or other suitable maximum line size */
+                        while (fgets(line, sizeof line, fptr) != NULL) /* read a line */
+                        {
+                            if (count == counter)
+                            {
+                                //use line or in a function return it
+                                //            //in case of a return first close the file with "fclose(file);"
+                                printf("%s", line);
+                                fclose(fptr);
+
+                            }
+                            else
+                            {
+                                count++;
+                            }
+                        }
+                    }
+
+
+
+                    fptr = fopen("invoice.txt", "r");
+
+                    /*if(fptr!=NULL)
+                    {
+                        printf("file can not open.");
+                    }*/
+
+                    char search1[50];
+                    strcpy(search1,searchName);
+
+                    do
+                    {
+                        ch = fscanf(fptr, "%s", word);
+                        if(strcmp(word, search1) == 0)
+                        {
+                            pos[counter] = pointer;
+                            counter++;
+                            break;
+                        }
+                        pointer++;
+
+                    }
+                    while (ch != EOF);
+
+                    int count1 = 0;
+
+                    if ( fptr != NULL )
+                    {
+                        char line[256]; /* or other suitable maximum line size */
+                        while (fgets(line, sizeof line, fptr) != NULL) /* read a line */
+                        {
+                            if (count1 == counter)
+                            {
+                                //use line or in a function return it
+                                //            //in case of a return first close the file with "fclose(file);"
+                                printf("p");
+                                printf("%s", line+1);
+                                fclose(fptr);
+
+                            }
+                            else
+                            {
+                                count1++;
+                            }
+                        }
+                    }
+
+                    fclose(fptr);
+                    if(counter==0)
+                    {
+                        printf("Error. The name you are searching for couldn't be found.");
+                    }
                 }
 
                //goto menu; //goes to main menu
