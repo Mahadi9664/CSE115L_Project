@@ -7,3 +7,33 @@ The profit for the day: 60
 Date: 12
 The ticketmaster for the bus: kkl
 The profit for the day: 2e8
+Date: 12/12/2022
+The ticketmaster for the bus: howl
+The profit for the day: String
+String
+String
+String
+String
+String
+String
+String
+String
+String
+Date: 12/12/2022
+The ticketmaster for the bus: howl
+The profit for the day: 53
+Date: 13/12/2022
+The ticketmaster for the bus: howl
+The profit for the day: 53
+Date: 13/12/2022
+The ticketmaster for the bus: mahadi
+The profit for the day: 53
+Date: 14/12/2922
+The ticketmaster for the bus: howl
+The profit for the day: 53
+Date: 15
+The ticketmaster for the bus: howl
+The profit for the day: 53
+Date: 2/23
+The ticketmaster for the bus: howl
+The profit for the day: 600

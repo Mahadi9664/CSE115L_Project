@@ -171,7 +171,7 @@ int main()
             {
                 printf("Which option do you choose: \n");
                 printf("1: Revenue calculation\n");
-                printf("2: Invoice print\n");
+                printf("2: Search information\n");
                 int r = mngrOptions();
 
                 if(r==1)
@@ -433,19 +433,23 @@ int main()
             printf("\t\t\t\t");
             printf("Enter the price for ticket today: ");
             scanf("%d",&ticket_price);
+            int revenue=ticket_price*passenger_num;
+
+
 
             FILE* fptr;
 
             fptr = fopen("revenue.txt", "a");
             //WARNING BUG HERE ***********************************************
             //*****************************************************************
-            //*****************************************************************
-            int revenue = ticket_price*passenger_num;
+            //****************************************************************
 
-            char snumrev[2000];
 
-            // convert 123 to string [buf]
-            itoa(revenue, snumrev, 20);
+            char strRev[10];
+
+            sprintf(strRev, "%d", revenue);
+            // Now str contains the integer as characters
+
 
             // print our string
             fputs("Date: ",fptr);
@@ -453,7 +457,7 @@ int main()
             fputs("The ticketmaster for the bus: ", fptr);
             fprintf(fptr, "%s\n",name);
             fputs("The profit for the day: ", fptr);
-            fprintf(fptr, "%s\n",snumrev);
+            fprintf(fptr, "%s\n",strRev);
 
 
             fclose(fptr);
