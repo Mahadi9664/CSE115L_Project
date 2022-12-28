@@ -146,7 +146,7 @@ menu:
 
     if(r==1)                                                                //MANAGER
     {
-        char slct1[500]="\n\n\t\tWhich option do you choose: \n\n\t\t1.Login\n\t\t2.Back\n\n";
+        char slct1[500]="\n\n\t\tWhich option do you choose: \n\n\t\t1.Login\n\t\t2.Back\n\t\t\n";
 
         for(int i=0; i<=strlen(slct1); i++)
         {
@@ -174,7 +174,8 @@ mngr:
                 printf("\t\t1: Revenue calculation\n");
                 printf("\t\t2: Search information\n");
                 printf("\t\t3: See full invoice\n");
-                printf("\t\t4: Create accounts for ticket masters.");
+                printf("\t\t4: Create accounts for ticket masters.\n");
+                printf("\t\t5: Delete passwords.\n");
                 int r = mngrOptions();
 
                 if(r==1)
@@ -345,7 +346,14 @@ mngr:
                     }
                     system("cls");
                     printf("\n\n\tOperation completed sucsessfully");
+                    goto menu;
+
+
                     //goto menu;
+                }
+                else if(r==5)
+                {
+                    fclose(fopen("passwords.txt", "w"));
                 }
                 //goto menu;
 
