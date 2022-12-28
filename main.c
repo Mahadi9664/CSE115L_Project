@@ -61,6 +61,24 @@ int mngrOptions(void)
         return 2;
 
     }
+    else if(x==3)
+    {
+        printf("\t\t ---------------YOU ARE SEEING ALL INVOICE------------------ \n\n");
+        return 3;
+
+    }
+    else if(x==4)
+    {
+        printf("\t\t ---------------YOU ARE CREATING ACCOUNT FOR TICKET MASTERS------------------ \n\n");
+        return 4;
+
+    }
+    else if(x==5)
+    {
+        printf("\t\t ---------------YOU JUST DELETED THE PREVIOUS PASSWORDS------------------ \n\n");
+        return 5;
+
+    }
 
 }
 
@@ -180,6 +198,7 @@ mngr:
 
                 if(r==1)
                 {
+                    char esc;
                     FILE *fp;
                     fp=fopen("revenue.txt","r");
                     char c;
@@ -188,8 +207,6 @@ mngr:
                         putchar(c);
                     }
                     fclose(fp);
-
-
 
                 }
                 else if(r==2)
@@ -203,7 +220,7 @@ mngr:
                     int loop;
                     char filename[]="invoice.txt";
 
-                    printf("Enter the name you want to search: ");
+                    printf("\t\tEnter the name you want to search: ");
                     scanf("%s",searchName);
 
                     FILE* fptr;
