@@ -133,7 +133,7 @@ int main()
 
     char slct[]="\n\n\t\tSELECT YOUR ROLE :\n\n\t\t1.Manager\n\t\t2.Ticketmaster\n\t\t\n";
     int i;
-    menu:
+menu:
     for(i=0; i<=52; i++)
     {
         printf("%c",slct[i]);
@@ -158,7 +158,7 @@ int main()
 
         if(r==1)                                            //MANAGER LOGIN
         {
-            mngr:
+mngr:
             printf("\t\tEnter your username: ");
             fflush(stdin);
             gets(m.username);
@@ -186,7 +186,7 @@ int main()
                     }
                     fclose(fp);
 
-                    //goto menu; //goes to main menu
+
 
                 }
                 else if(r==2)
@@ -309,16 +309,16 @@ int main()
                     }
                 }
 
-               //goto menu; //goes to main menu
+                //goto menu;
 
             }
             else
             {
                 printf("\e[1;1H\e[2J");
-            printf("\t\n\n\n\n\n\n\n\n\n");
-            printf("\t\tPlease enter the correct information and try again\n\n");
-            Beep(800,1000);
-            goto mngr; // beeps and goes to manager input if password is incorrect
+                printf("\t\n\n\n\n\n\n\n\n\n");
+                printf("\t\tPlease enter the correct information and try again\n\n");
+                Beep(800,1000);
+                goto mngr; // beeps and goes to manager input if password is incorrect
             }
         }
 
@@ -345,8 +345,8 @@ int main()
 
             }
             system("cls");
-             printf("\n\n\tOperation completed sucsessfully");
-              //goto menu;
+            printf("\n\n\tOperation completed sucsessfully");
+            //goto menu;
 
 
 
@@ -361,143 +361,158 @@ int main()
 
     else if(r==2)                                   //ticket master login
     {
-        struct manager n;
-        char word[50];
-        char ch;
-        int count =0;
-        int pos[10];
-        int pointer =0;
-        int loop;
-        char filename[]="passwords.txt";
-
-        tmpass:
-        printf("\t\tEnter your username: ");
-        fflush(stdin);
-        gets(n.username);
-        printf("\t\tEnter your password: ");
-        fflush(stdin);
-        gets(n.password);
-
-        FILE* fptr;
-
-        fptr = fopen("passwords.txt", "r");
-
-        /*if(fptr!=NULL)
+        int r;
+        printf("\t\tChoose an option\n\n\t\t\t1.Login\n\t\t\t2.Back\n");
+        scanf("%d",&r);
+        if(r==1)
         {
-            printf("file can not open.");
-        }*/
+            struct manager n;
+            char word[50];
+            char ch;
+            int count =0;
+            int pos[10];
+            int pointer =0;
+            int loop;
+            char filename[]="passwords.txt";
 
-        char search[50];
-        strcpy(search,strcat(n.username,n.password));
-
-        do
-        {
-            ch = fscanf(fptr, "%s", word);
-            if(strcmp(word, search) == 0)
-            {
-                pos[count] = pointer;
-                count++;
-            }
-            pointer++;
-            //printf("%s",word);
-        }
-        while (ch != EOF);
-
-        if(count == 0)
-        {
-            printf("\e[1;1H\e[2J");
-            printf("\t\n\n\n\n\n\n\n\n\n");
-            printf("\t\tPlease enter the correct information and try again\n\n");
-            Beep(800,1000);
-            goto tmpass; //beeps and goes to tm login page again
-        }
-        else
-        {
-            char date[30];
-            char name[20];
-            int passenger_num;
-            int ticket_price;
-            inv passengers[40];
-
-            printf("\e[1;1H\e[2J");
-            printf("\t\n\n\n\n\n\n\n\n\n\t\t\t\t");
-            printf("Enter date: ");
+tmpass:
+            printf("\t\tEnter your username: ");
             fflush(stdin);
-            gets(date);
-            printf("\t\t\t\t");
-            printf("Enter name: ");
+            gets(n.username);
+            printf("\t\tEnter your password: ");
             fflush(stdin);
-            gets(name);
-            printf("\t\t\t\t");
-            printf("Enter number of passengers today(cannot be over 40): ");
-            scanf("%d",&passenger_num);
-            printf("\t\t\t\t");
-            printf("Enter the price for ticket today: ");
-            scanf("%d",&ticket_price);
-            int revenue=ticket_price*passenger_num;
-
-
+            gets(n.password);
 
             FILE* fptr;
 
-            fptr = fopen("revenue.txt", "a");
+            fptr = fopen("passwords.txt", "r");
 
+            /*if(fptr!=NULL)
+            {
+                printf("file can not open.");
+            }*/
 
-            char strRev[10];
+            char search[50];
+            strcpy(search,strcat(n.username,n.password));
 
-            sprintf(strRev, "%d", revenue);
-            // Now str contains the integer as characters
+            do
+            {
+                ch = fscanf(fptr, "%s", word);
+                if(strcmp(word, search) == 0)
+                {
+                    pos[count] = pointer;
+                    count++;
+                }
+                pointer++;
+                //printf("%s",word);
+            }
+            while (ch != EOF);
 
-
-            // print our string
-            fputs("Date: ",fptr);
-            fprintf(fptr, "%s\n",date);
-            fputs("The ticketmaster for the bus: ", fptr);
-            fprintf(fptr, "%s\n",name);
-            fputs("The profit for the day: ", fptr);
-            fprintf(fptr, "%s\n",strRev);
-
-
-            fclose(fptr);
-
-
-
-            for(int i=0; i<passenger_num; i++)          //taking the input for invoice
+            if(count == 0)
             {
                 printf("\e[1;1H\e[2J");
+                printf("\t\n\n\n\n\n\n\n\n\n");
+                printf("\t\tPlease enter the correct information and try again\n\n");
+                Beep(800,1000);
+                goto tmpass; //beeps and goes to tm login page again
+            }
+            else
+            {
+                char date[30];
+                char name[20];
+                int passenger_num;
+                int ticket_price;
+                inv passengers[40];
+
+                printf("\e[1;1H\e[2J");
                 printf("\t\n\n\n\n\n\n\n\n\n\t\t\t\t");
+                printf("Enter date: ");
+                fflush(stdin);
+                gets(date);
+                printf("\t\t\t\t");
                 printf("Enter name: ");
                 fflush(stdin);
-                gets(passengers[i].name);
+                gets(name);
                 printf("\t\t\t\t");
-                printf("Enter email: ");
-                fflush(stdin);
-                gets(passengers[i].email);
+                printf("Enter number of passengers today(cannot be over 40): ");
+                scanf("%d",&passenger_num);
                 printf("\t\t\t\t");
-                printf("Enter phone number: ");
-                fflush(stdin);
-                gets(passengers[i].phone);
+                printf("Enter the price for ticket today: ");
+                scanf("%d",&ticket_price);
+                int revenue=ticket_price*passenger_num;
+
+
 
                 FILE* fptr;
 
-                fptr = fopen("invoice.txt", "a");
+                fptr = fopen("revenue.txt", "a");
 
-                fputs("Name: ",fptr);
-                fprintf(fptr, "%s\n",passengers[i].name);
-                fputs("Email: ",fptr);
-                fprintf(fptr, "%s\n",passengers[i].email);
-                fputs("Phone: ",fptr);
-                fprintf(fptr, "%s\n",passengers[i].phone);
+
+                char strRev[10];
+
+                sprintf(strRev, "%d", revenue);
+                // Now str contains the integer as characters
+
+
+                // print our string
+                fputs("Date: ",fptr);
+                fprintf(fptr, "%s\n",date);
+                fputs("The ticketmaster for the bus: ", fptr);
+                fprintf(fptr, "%s\n",name);
+                fputs("The profit for the day: ", fptr);
+                fprintf(fptr, "%s\n",strRev);
 
 
                 fclose(fptr);
 
+
+
+                for(int i=0; i<passenger_num; i++)          //taking the input for invoice
+                {
+                    printf("\e[1;1H\e[2J");
+                    printf("\t\n\n\n\n\n\n\n\n\n\t\t\t\t");
+                    printf("Enter name: ");
+                    fflush(stdin);
+                    gets(passengers[i].name);
+                    printf("\t\t\t\t");
+                    printf("Enter email: ");
+                    fflush(stdin);
+                    gets(passengers[i].email);
+                    printf("\t\t\t\t");
+                    printf("Enter phone number: ");
+                    fflush(stdin);
+                    gets(passengers[i].phone);
+
+                    FILE* fptr;
+
+                    fptr = fopen("invoice.txt", "a");
+
+                    fputs("Name: ",fptr);
+                    fprintf(fptr, "%s\n",passengers[i].name);
+                    fputs("Email: ",fptr);
+                    fprintf(fptr, "%s\n",passengers[i].email);
+                    fputs("Phone: ",fptr);
+                    fprintf(fptr, "%s\n",passengers[i].phone);
+
+
+                    fclose(fptr);
+
+                }
+
+
             }
+            system("cls");
+            printf("\n\n\t\t\t\t\tInformation saved successfully");
+            goto menu;
 
 
         }
+        else if(r==2)
+        {
+            system("cls");
+            goto menu;
 
-
+        }
 
     }
 

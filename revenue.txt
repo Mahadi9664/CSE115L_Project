@@ -37,3 +37,12 @@ The profit for the day: 53
 Date: 2/23
 The ticketmaster for the bus: howl
 The profit for the day: 600
+Date: 34
+The ticketmaster for the bus: siam
+The profit for the day: 2423232
+Date: 232
+The ticketmaster for the bus: 232
+The profit for the day: 90
+Date: w3
+The ticketmaster for the bus: ewe
+The profit for the day: 150
