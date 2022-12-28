@@ -52,12 +52,12 @@ int mngrOptions(void)
     printf("\n\n\n\n\n\n\t");
     if(x==1)
     {
-        printf("\t\t-------------------YOU ARE VIEWING THE REVENUE----------------- \n\n"); //not working
+        printf("\t\t-------------------YOU ARE VIEWING THE REVENUE----------------- \n\n");
         return 1;
     }
     else if(x==2)
     {
-        printf("\t\t ---------------YOU ARE SEARCHING FOR TICKET BUYER'S INFORMATION------------------ \n\n"); //notworking
+        printf("\t\t ---------------YOU ARE SEARCHING FOR TICKET BUYER'S INFORMATION------------------ \n\n");
         return 2;
 
     }
@@ -87,12 +87,12 @@ int logincheck(int x)
     printf("\n\n\n\n\n\n\t");
     if(x==1)
     {
-        printf("\t\t\t---------------YOU ARE LOGGING IN AS THE MANAGER------------------ \n\n\t\t\t\t****PLEASE ENTER THE FOLLOWING INFORMATION***\n\n"); //notworking
+        printf("\t\t\t---------------YOU ARE LOGGING IN AS THE MANAGER------------------ \n\n\t\t\t\t****PLEASE ENTER THE FOLLOWING INFORMATION***\n\n");
         return 1;
     }
     else if(x==2)
     {
-        printf("\t---------------YOU ARE CREATING USERNAMES AND PASSWORDS FOR TICKETMASTERS------------------\n\n\t\t\t\t\t****PLEASE ENTER THE FOLLOWING INFORMATION***\n\n"); //not working
+        printf("\t---------------YOU ARE CREATING USERNAMES AND PASSWORDS FOR TICKETMASTERS------------------\n\n\t\t\t\t\t****PLEASE ENTER THE FOLLOWING INFORMATION***\n\n");
         return 2;
 
     }
@@ -173,6 +173,7 @@ mngr:
                 printf("\n\n\n\n\t\tWhich option do you choose: \n");
                 printf("\t\t1: Revenue calculation\n");
                 printf("\t\t2: Search information\n");
+                printf("\t\t3: See full invoice\n");
                 int r = mngrOptions();
 
                 if(r==1)
@@ -308,7 +309,16 @@ mngr:
                         printf("Error. The name you are searching for couldn't be found.");
                     }
                 }
-
+                else if(r==3)
+                {
+                    FILE *fp;
+                    fp=fopen("invoice.txt","r");
+                    char c;
+                    while((c=getc(fp))!=EOF){
+                    putchar(c);
+                    }
+                    fclose(fp);
+                }
                 //goto menu;
 
             }
