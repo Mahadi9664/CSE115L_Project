@@ -169,9 +169,10 @@ int main()
             char str[]="admin";
             if(strcmp(m.username,str)==0 && strcmp(m.password,str)==0)
             {
-                printf("Which option do you choose: \n");
-                printf("1: Revenue calculation\n");
-                printf("2: Search information\n");
+                system("cls");
+                printf("\n\n\n\n\t\tWhich option do you choose: \n");
+                printf("\t\t1: Revenue calculation\n");
+                printf("\t\t2: Search information\n");
                 int r = mngrOptions();
 
                 if(r==1)
