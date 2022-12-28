@@ -146,7 +146,7 @@ menu:
 
     if(r==1)                                                                //MANAGER
     {
-        char slct1[500]="\n\n\t\tWhich option do you choose: \n\n\t\t1.Login\n\t\t2.Create accounts for ticketmaster.\n\t\t3.Back\n\t\t\n";
+        char slct1[500]="\n\n\t\tWhich option do you choose: \n\n\t\t1.Login\n\t\t2.Back\n\n";
 
         for(int i=0; i<=strlen(slct1); i++)
         {
@@ -174,6 +174,7 @@ mngr:
                 printf("\t\t1: Revenue calculation\n");
                 printf("\t\t2: Search information\n");
                 printf("\t\t3: See full invoice\n");
+                printf("\t\t4: Create accounts for ticket masters.");
                 int r = mngrOptions();
 
                 if(r==1)
@@ -314,10 +315,37 @@ mngr:
                     FILE *fp;
                     fp=fopen("invoice.txt","r");
                     char c;
-                    while((c=getc(fp))!=EOF){
-                    putchar(c);
+                    while((c=getc(fp))!=EOF)
+                    {
+                        putchar(c);
                     }
                     fclose(fp);
+                }
+                else if(r==4)
+                {
+                    for(int i=0; i<3; i++)
+                    {
+                        printf("\t\tCreate username for user %d: ",i+1);
+                        fflush(stdin);
+                        gets(tm[i].username);
+                        printf("\t\tCreate password for user %d: ",i+1);
+                        fflush(stdin);
+                        gets(tm[i].password);
+
+                        FILE* fptr;
+
+                        fptr = fopen("passwords.txt", "a");
+
+                        fprintf(fptr, "%s",tm[i].username);
+                        fprintf(fptr, "%s\n",tm[i].password);
+
+
+                        fclose(fptr);
+
+                    }
+                    system("cls");
+                    printf("\n\n\tOperation completed sucsessfully");
+                    //goto menu;
                 }
                 //goto menu;
 
@@ -332,36 +360,32 @@ mngr:
             }
         }
 
-        else if(r==2)                                           //Create accounts
+
+        /*for(int i=0; i<3; i++)
         {
-            for(int i=0; i<3; i++)
-            {
-                printf("\tCreate username for user %d: ",i+1);
-                fflush(stdin);
-                gets(tm[i].username);
-                printf("\tCreate password for user %d: ",i+1);
-                fflush(stdin);
-                gets(tm[i].password);
+            printf("\tCreate username for user %d: ",i+1);
+            fflush(stdin);
+            gets(tm[i].username);
+            printf("\tCreate password for user %d: ",i+1);
+            fflush(stdin);
+            gets(tm[i].password);
 
-                FILE* fptr;
+            FILE* fptr;
 
-                fptr = fopen("passwords.txt", "a");
+            fptr = fopen("passwords.txt", "a");
 
-                fprintf(fptr, "%s",tm[i].username);
-                fprintf(fptr, "%s\n",tm[i].password);
+            fprintf(fptr, "%s",tm[i].username);
+            fprintf(fptr, "%s\n",tm[i].password);
 
 
-                fclose(fptr);
-
-            }
-            system("cls");
-            printf("\n\n\tOperation completed sucsessfully");
-            //goto menu;
-
-
+            fclose(fptr);
 
         }
-        else if(r==3)
+        system("cls");
+        printf("\n\n\tOperation completed sucsessfully");
+        //goto menu;*/
+
+        else if(r==2)
         {
             goto menu;
         }
