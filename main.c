@@ -57,7 +57,7 @@ int mngrOptions(void)
     }
     else if(x==2)
     {
-        printf("\t\t ---------------YOU ARE SEARCHING FOR TICKET INVOICE------------------ \n\n"); //notworking
+        printf("\t\t ---------------YOU ARE SEARCHING FOR TICKET BUYER'S INFORMATION------------------ \n\n"); //notworking
         return 2;
 
     }
@@ -441,9 +441,6 @@ int main()
             FILE* fptr;
 
             fptr = fopen("revenue.txt", "a");
-            //WARNING BUG HERE ***********************************************
-            //*****************************************************************
-            //****************************************************************
 
 
             char strRev[10];
