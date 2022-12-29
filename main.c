@@ -386,29 +386,7 @@ mngr:
         }
 
 
-        /*for(int i=0; i<3; i++)
-        {
-            printf("\tCreate username for user %d: ",i+1);
-            fflush(stdin);
-            gets(tm[i].username);
-            printf("\tCreate password for user %d: ",i+1);
-            fflush(stdin);
-            gets(tm[i].password);
 
-            FILE* fptr;
-
-            fptr = fopen("passwords.txt", "a");
-
-            fprintf(fptr, "%s",tm[i].username);
-            fprintf(fptr, "%s\n",tm[i].password);
-
-
-            fclose(fptr);
-
-        }
-        system("cls");
-        printf("\n\n\tOperation completed sucsessfully");
-        //goto menu;*/
 
         else if(r==2)
         {
@@ -574,5 +552,6 @@ tmpass:
         }
 
     }
+    return 0;
 
 }
