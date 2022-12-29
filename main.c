@@ -79,17 +79,21 @@ int mngrOptions(void)
         return 5;
 
     }
+    else if(x==6)
+    {
+        return 6;
+    }
 
 }
 
 void welcome()
 {
     int i;
-    char x=219;
+
 
     char c[50]="WELCOME TO BUS MANAGEMENT SYSTEM";
     printf("\n\n\n\n\n\n\t\t\t\t\t");
-    for(i=0; i<=50; i++)
+    for(i=0; i<=49; i++)
     {
         printf("%c",c[i]);
         Sleep(50);
@@ -194,6 +198,7 @@ mngr:
                 printf("\t\t3: See full invoice\n");
                 printf("\t\t4: Create accounts for ticket masters.\n");
                 printf("\t\t5: Delete passwords.\n");
+                printf("\t\t6: Back\n");
                 int r = mngrOptions();
 
                 if(r==1)
@@ -373,6 +378,10 @@ mngr:
                     fclose(fopen("passwords.txt", "w"));
                 }
                 //goto menu;
+                else if(r==6)
+                {
+                    goto menu;
+                }
 
             }
             else
@@ -503,11 +512,11 @@ tmpass:
                 fclose(fptr);
 
 
-
                 for(int i=0; i<passenger_num; i++)          //taking the input for invoice
                 {
                     printf("\e[1;1H\e[2J");
-                    printf("\t\n\n\n\n\n\n\n\n\n\t\t\t\t");
+                    printf("\n\n\n\t\t\t\t------ENTER PASSENGER %d INFMORMATION------",i+1);
+                    printf("\t\n\n\n\n\n\t\t\t\t");
                     printf("Enter name: ");
                     fflush(stdin);
                     gets(passengers[i].name);
